@@ -1,7 +1,17 @@
-const teste = (req,res) => {
-    const testeGet = 'Teste de GET';
+const post = (req, res) => {
+    const { email, nome } = req.body;
 
-    res.send(testeGet);
+    if(!email || !nome){
+        res.status(400).send({message:'preencha os campos corretamente'});
+    }
+
+    res.status(200).send({
+        message: "Aluno cadastrado com sucesso",
+        aluno: {
+            email,
+            nome
+        }
+    })
 }
 
-module.exports = { teste };
+module.exports = { post };

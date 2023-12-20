@@ -2,7 +2,7 @@ const route = require('express').Router();
 const alunoController = require('../controllers/aluno.controller');
 
 
-route.get('/', alunoController.teste);
+route.post('/', alunoController.post);
 
 
 module.exports = route;
