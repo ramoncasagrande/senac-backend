@@ -22,4 +22,14 @@ const post = async (req, res) => {
     })
 }
 
-module.exports = { post };
+const get = async (req, res) => {
+    const alunos = await alunoService.getAll();
+
+    if(alunos.length === 0) {
+        return res.status(400).send({message:"Não há alunos cadastrados"});
+    }
+
+    res.send(alunos)
+}
+
+module.exports = { post, get };
