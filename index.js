@@ -1,8 +1,9 @@
 const express = require("express");
 const app = express();
+const alunoRoute = require("./src/routes/aluno.route");
 
-app.get("/", (req,res) => {
-    res.send("Hello World!");
-})
+app.use('/aluno', alunoRoute);
+
+
 
 app.listen(3000);
